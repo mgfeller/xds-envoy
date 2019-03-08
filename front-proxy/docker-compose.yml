@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile-frontenvoy
     volumes:
       - ./front-envoy.yaml:/etc/front-envoy.yaml
+      - ./rds.yaml:/etc/rds.yaml
     networks:
       - envoymesh
     expose:

@@ -1,3 +1,8 @@
+# https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/core/base.proto#core-node
+node:
+  id: id_1
+  cluster: test
+
 static_resources:
   listeners:
   - address:
@@ -10,21 +15,25 @@ static_resources:
         config:
           codec_type: auto
           stat_prefix: ingress_http
-          route_config:
-            name: local_route
-            virtual_hosts:
-            - name: backend
-              domains:
-              - "*"
-              routes:
-              - match:
-                  prefix: "/service/1"
-                route:
-                  cluster: service1
-              - match:
-                  prefix: "/service/2"
-                route:
-                  cluster: service2
+          rds:
+            route_config_name: local_route
+            config_source:
+              path: /etc/rds.yaml
+          # route_config:
+          #   name: local_route
+          #   virtual_hosts:
+          #   - name: backend
+          #     domains:
+          #     - "*"
+          #     routes:
+          #     - match:
+          #         prefix: "/service/1"
+          #       route:
+          #         cluster: service1
+          #     - match:
+          #         prefix: "/service/2"
+          #       route:
+          #         cluster: service2
           http_filters:
           - name: envoy.router
             config: {}
