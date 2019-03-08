@@ -18,22 +18,7 @@ static_resources:
           rds:
             route_config_name: local_route
             config_source:
-              path: /etc/rds.yaml
-          # route_config:
-          #   name: local_route
-          #   virtual_hosts:
-          #   - name: backend
-          #     domains:
-          #     - "*"
-          #     routes:
-          #     - match:
-          #         prefix: "/service/1"
-          #       route:
-          #         cluster: service1
-          #     - match:
-          #         prefix: "/service/2"
-          #       route:
-          #         cluster: service2
+              path: /etc/rds/rds.yaml
           http_filters:
           - name: envoy.router
             config: {}
