@@ -1,7 +1,7 @@
 # https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/core/base.proto#core-node
 node:
-  id: id_1
-  cluster: test
+  id: node_01
+  cluster: front-proxy
 
 static_resources:
   listeners:

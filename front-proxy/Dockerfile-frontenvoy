@@ -12,4 +12,4 @@ COPY filebeat.yml /etc/filebeat/filebeat.yml
 # looks like new envoy.log file does not show up when rotating, how does envoy handle log-file fd?
 # COPY envoy.logrotate /etc/logrotate.d/envoy
 # RUN chmod 644 /etc/logrotate.d/envoy
-CMD service filebeat start && /usr/local/bin/envoy -c /etc/front-envoy.yaml --service-cluster front-proxy --log-path /var/log/envoy.log
+CMD service filebeat start && /usr/local/bin/envoy -c /etc/front-envoy.yaml --log-path /var/log/envoy.log
